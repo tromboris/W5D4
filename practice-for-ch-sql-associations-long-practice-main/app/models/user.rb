@@ -9,12 +9,13 @@
 #
 class User < ApplicationRecord
 
-    # belongs_to :user,
-    #     primary_key: :id,
-    #     foreign_key: :user_id,
-    #     class_name: :User
-    # belongs_to :user,
-    #     primary_key: :id,
-    #     foreign_key: :user_id,
-    #     class_name: :User
+    has_many :enrollments,
+        primary_key: :id,
+        foreign_key: :enrollment_id,
+        class_name: :Enrollment
+
+    has_many :enrolled_courses,
+        
+        
+
 end
