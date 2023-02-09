@@ -11,6 +11,19 @@
 #
 class Course < ApplicationRecord
 
+    if !self.name.include?('101')
+        belongs_to :prerequisite,
+            primary_key: :id,
+            foreign_key: :prereq_id,
+            class_name: :Course
+    else
+        has_many :courses,
+            primary_key: :id,
+            foreign_key: :course_id,
+            class_name: :Course
+    end
+
+    
     belongs_to :student,
         primary_key: :id,
         foreign_key: :student_id,
