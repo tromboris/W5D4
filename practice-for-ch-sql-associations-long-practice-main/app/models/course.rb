@@ -10,6 +10,7 @@
 #  updated_at    :datetime         not null
 #
 class Course < ApplicationRecord
+    validate :prereq_id, optional: true, presence: true
 
     if !self.name.include?('101')
         belongs_to :prerequisite,
